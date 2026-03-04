@@ -3,7 +3,7 @@
 Repositório criado para documentar minha jornada estudando banco de dados.
 
 ## 📁 Estrutura do Repositório
-* **01-criando-banco-de-dados/**: Contém o script de criação da tabela `pessoas` e a descrição delas.
+* **01-criando-banco-de-dados/**: Contém o script de criação da tabela `pessoas` e a descrição dela.
 
 
 ## 📸 Demonstração
