@@ -26,11 +26,11 @@ Estrutura da tabela após os primeiros comandos:
 
 ### 2. Evolução da Tabela (Constraints e PK)
 Melhorias de estrutura da aula 02:
-![Resultado Aula 2](./02-Melhorando%20a%20estrutura%20do%20Banco%20de%20Dados/Melhorando%20estrutura.png)
+![Resultado Aula 2](./02-%20Melhorando%20a%20estrutura%20do%20Banco%20de%20Dados/Melhorando%20estrutura.png)
 
 ### 3. Tabela Populada
 Visualização da tabela após as inserções da aula 03:
-![Resultado Aula 3](./03-Inserindo%20Dados/tabela-populada.png)
+![Resultado Aula 3](./03-%20Inserindo%20dados%20na%20tabela/mostrando%20insert.png)
 
 ### 4. Nova Tabela de Cursos e Alterações
 Estrutura da nova tabela `cursos` criada e modificada via script:
