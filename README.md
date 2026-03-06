@@ -1,7 +1,3 @@
-# Meu Aprendizado de SQL 🚀
-
-Repositório criado para documentar minha jornada de estudos em Banco de Dados, focado em MySQL.
-
 ## 📁 Estrutura do Repositório
 
 * **01-Criando BD**: Scripts iniciais para criação do banco de dados e da tabela `pessoas`.
@@ -9,13 +5,14 @@ Repositório criado para documentar minha jornada de estudos em Banco de Dados, 
 * **03-Inserindo Dados (DML)**: Prática de manipulação de dados com `INSERT INTO`.
 * **04-Alterando a Estrutura (DDL)**: Uso de `ALTER TABLE` e `DROP TABLE`.
 * **05-Manipulando Linhas (DML)**: Comandos de edição e exclusão de registros: `UPDATE`, `DELETE` e `TRUNCATE`.
+* **06-Backup e Recuperação (DUMP)**: Exportação e importação do banco de dados completo através do MySQL Workbench.
 
-## 📚 Conceitos Aprendidos na Aula 05
+## 📚 Conceitos Aprendidos na Aula 06
 
-* **Edição de Registros**: Uso do `UPDATE` com a cláusula `SET` para corrigir dados específicos.
-* **Filtros de Segurança**: Importância do `WHERE` para localizar registros e o uso do `LIMIT` para restringir o número de linhas afetadas por um comando.
-* **Correções Múltiplas**: Como alterar diversos campos (colunas) de uma mesma linha em um único comando.
-* **Exclusão de Dados**: Diferença entre o `DELETE FROM` (apaga linhas específicas com filtro) e o `TRUNCATE TABLE` (esvazia a tabela completamente, limpando o histórico de IDs).
+* **Data Export (DUMP)**: Geração de um arquivo `.sql` contendo toda a estrutura (*Schema*) e os dados do banco.
+* **Segurança de Dados**: Prática de exclusão do banco de dados (`DROP DATABASE`) para simular uma perda e testar a recuperação.
+* **Data Import**: Restauração do banco de dados a partir de um arquivo único de Backup.
+* **Verificação de Integridade**: Uso de comandos como `SHOW TABLES`, `DESC` e `SELECT` para garantir que os dados voltaram corretamente após a importação.
 
 ## 📸 Demonstração Prática
 
@@ -25,7 +22,7 @@ Estrutura da tabela após os primeiros comandos:
 
 ### 2. Evolução da Tabela (Constraints e PK)
 Melhorias de estrutura da aula 02:
-![Resultado Aula 2](./02-Melhorando%20a%20estrutura%20do%20Banco%20de%20Dados/Melhorando%20estrutura.png)
+![Resultado Aula 2](./02-%20Melhorando%20a%20estrutura%20do%20Banco%20de%20Dados/Melhorando%20estrutura.png)
 
 ### 3. Tabela Populada
 Visualização da tabela após as inserções da aula 03:
@@ -47,3 +44,12 @@ Estado da tabela após a exclusão de um registro específico:
 **C- Truncate (Tabela Vazia)**
 Resultado após o comando de limpeza total da tabela:
 ![Truncate Cursos](./05-%20Manipulando%20linhas/usando%20truncate.png)
+
+### 6. Backup e Restauração (Aula 06)
+**A- Exportação do Banco (Dump)**
+Processo de configuração do Data Export para gerar o arquivo de backup único:
+![Exportando Dados](./06-%20Copia%20de%20segurança/EXPORTANDO.png)
+
+**B- Importação e Verificação**
+Restauração do banco de dados e conferência da estrutura após o Import:
+![Importando Dados](./06-%20Copia%20de%20segurança/IMPORTANDO.png)

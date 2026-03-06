@@ -1,3 +1,25 @@
+Fazendo um DUMP
+
+#dessa maneira terá um DUMP, um backup do Banco de dado
+server > data export > selecionar BD > exportar arquivo único > include database schema
+
+#vamos excluir o Banco para abri-lo novamente a partir do DUMP
+drop database cadastro;
+
+#para importar fazendo assim
+server > data import > importar do arquivo > selecionar BD > start > atualizar
+
+#mostrando as tabelas
+show tables;
+
+#verificando a descrição das tabelas
+desc gafanhotos;
+desc cursos;
+
+#verificando os dados da tabela
+select * from gafanhotos;
+select * from cursos;
+
 CREATE DATABASE  IF NOT EXISTS `cadastro` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `cadastro`;
 -- MySQL dump 10.13  Distrib 8.0.45, for Win64 (x86_64)
@@ -87,3 +109,5 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2026-03-05  0:44:30
+
+
