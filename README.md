@@ -6,13 +6,15 @@
 * **04-Alterando a Estrutura (DDL)**: Uso de `ALTER TABLE` e `DROP TABLE`.
 * **05-Manipulando Linhas (DML)**: Comandos de edição e exclusão de registros: `UPDATE`, `DELETE` e `TRUNCATE`.
 * **06-Backup e Recuperação (DUMP)**: Exportação e importação do banco de dados completo através do MySQL Workbench.
+* **07-PHPMyAdmin e Interface Web**: Gerenciamento de bancos de dados através da interface gráfica do PHPMyAdmin.
 
-## 📚 Conceitos Aprendidos na Aula 06
+## 📚 Conceitos Aprendidos na Aula 07
 
-* **Data Export (DUMP)**: Geração de um arquivo `.sql` contendo toda a estrutura (*Schema*) e os dados do banco.
-* **Segurança de Dados**: Prática de exclusão do banco de dados (`DROP DATABASE`) para simular uma perda e testar a recuperação.
-* **Data Import**: Restauração do banco de dados a partir de um arquivo único de Backup.
-* **Verificação de Integridade**: Uso de comandos como `SHOW TABLES`, `DESC` e `SELECT` para garantir que os dados voltaram corretamente após a importação.
+* **Interface Gráfica (GUI)**: Execução de comandos SQL através do navegador.
+* **Tipo ENUM**: Implementação de colunas com valores pré-definidos (ex: 'M', 'F'), garantindo que apenas as opções permitidas sejam inseridas.
+* **Engines de Banco**: Observação do motor `MyISAM` e as diferenças de `Collation` (como `utf8mb4_unicode_ci`).
+* **Engenharia Reversa**: Uso do comando `SHOW CREATE` para extrair o código SQL de tabelas criadas visualmente.
+* **Manutenção via Web**: Prática de `INSERT`, `UPDATE` e `DELETE` diretamente pela interface do PHPMyAdmin.
 
 ## 📸 Demonstração Prática
 
@@ -53,3 +55,12 @@ Processo de configuração do Data Export para gerar o arquivo de backup único:
 **B- Importação e Verificação**
 Restauração do banco de dados e conferência da estrutura após o Import:
 ![Importando Dados](./06-%20Copia%20de%20segurança/IMPORTANDO.png)
+
+### 7. Gerenciamento via PHPMyAdmin (Aula 07)
+**A- Criação de Tabelas e Atributos**
+Interface de criação da tabela `amigos` e definição do campo `ENUM`:
+![Configuração PHPMyAdmin](./07-%20Vendo%20interface/estruturando%20tabela.png)
+
+**B- Tabela Populada e SQL Gerado**
+Visualização dos dados inseridos e o dump gerado pela ferramenta:
+![Tabela Amigos](./07-%20Vendo%20interface/populando%20tabela.png)
