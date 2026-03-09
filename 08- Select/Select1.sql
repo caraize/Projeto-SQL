@@ -1,4 +1,4 @@
-#Pegamos o Dump do professor para praticar
+#Pegamos o Dump do professor para praticar, também na pasta.
 
 Select parte1
 

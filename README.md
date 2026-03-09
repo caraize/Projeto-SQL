@@ -1,3 +1,7 @@
+# Meu Aprendizado de SQL 🚀
+
+Repositório criado para documentar minha jornada de estudos em Banco de Dados, focado em MySQL.
+
 ## 📁 Estrutura do Repositório
 
 * **01-Criando BD**: Scripts iniciais para criação do banco de dados e da tabela `pessoas`.
@@ -5,16 +9,20 @@
 * **03-Inserindo Dados (DML)**: Prática de manipulação de dados com `INSERT INTO`.
 * **04-Alterando a Estrutura (DDL)**: Uso de `ALTER TABLE` e `DROP TABLE`.
 * **05-Manipulando Linhas (DML)**: Comandos de edição e exclusão de registros: `UPDATE`, `DELETE` e `TRUNCATE`.
-* **06-Backup e Recuperação (DUMP)**: Exportação e importação do banco de dados completo através do MySQL Workbench.
-* **07-PHPMyAdmin e Interface Web**: Gerenciamento de bancos de dados através da interface gráfica do PHPMyAdmin.
+* **06-Backup e Recuperação (DUMP)**: Exportação e importação do banco de dados completo.
+* **07-PHPMyAdmin e Interface Web**: Gerenciamento de bancos de dados via interface web.
+* **08-Consultas Avançadas (DQL) - Parte 1**: O poder do `SELECT`. Filtros, ordenação e operadores lógicos.
 
-## 📚 Conceitos Aprendidos na Aula 07
+## 📚 Conceitos Aprendidos na Aula 08
 
-* **Interface Gráfica (GUI)**: Execução de comandos SQL através do navegador.
-* **Tipo ENUM**: Implementação de colunas com valores pré-definidos (ex: 'M', 'F'), garantindo que apenas as opções permitidas sejam inseridas.
-* **Engines de Banco**: Observação do motor `MyISAM` e as diferenças de `Collation` (como `utf8mb4_unicode_ci`).
-* **Engenharia Reversa**: Uso do comando `SHOW CREATE` para extrair o código SQL de tabelas criadas visualmente.
-* **Manutenção via Web**: Prática de `INSERT`, `UPDATE` e `DELETE` diretamente pela interface do PHPMyAdmin.
+* **DQL (Data Query Language)**: Introdução ao comando `SELECT` para consulta de dados.
+* **Ordenação**: Uso do `ORDER BY` (Crescente) e `ORDER BY DESC` (Decrescente) para organizar resultados.
+* **Filtros de Seleção**: Seleção de colunas específicas em vez do uso genérico do `*`.
+* **Operadores Relacionais**: Filtragem com `>`, `<`, `>=`, `<=`, `!=` (diferente) e `=`.
+* **Intervalos e Listas**: 
+    * `BETWEEN`: Busca de valores dentro de um intervalo (ex: entre anos 2014 e 2016).
+    * `IN`: Busca de valores que coincidem com uma lista específica (ex: anos 2014 e 2016 apenas).
+* **Operadores Lógicos**: Refinamento de buscas utilizando `AND` (todas as condições verdadeiras) e `OR` (pelo menos uma verdadeira).
 
 ## 📸 Demonstração Prática
 
@@ -64,3 +72,13 @@ Interface de criação da tabela `amigos` e definição do campo `ENUM`:
 **B- Tabela Populada e SQL Gerado**
 Visualização dos dados inseridos e o dump gerado pela ferramenta:
 ![Tabela Amigos](./07-%20Vendo%20interface/populando%20tabela.png)
+
+### 8. Consultas com Select (Aula 08)
+
+**A. Ordenação e Filtros Básicos**
+Exemplo de listagem de cursos filtrados por ano e ordenados por nome:
+![Select Básico](./08-%20Select/filtrado%20por%20nome%20e%20ordenado%20por%20nome.png)
+
+**B. Operadores Lógicos e Intervalos**
+Uso de `BETWEEN`, `AND` e `OR` para encontrar cursos com cargas horárias específicas:
+![Select Avançado](./08-%20Select/between%20e%20order%20by.png)
