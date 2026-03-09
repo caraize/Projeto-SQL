@@ -90,7 +90,10 @@ Uso de `BETWEEN`, `AND` e `OR` para encontrar cursos com cargas horárias espec�
 Exemplo de como filtrar nomes que possuem padrões específicos de letras:
 ![Uso do LIKE](./09-%20Select%202/usando%20like%20%25.png)
 
-**A. Funções de Agregação (Estatísticas)**
-Uso do `COUNT`, `SUM` e `AVG` para extrair cálculos do banco de dados:
-![Agregação e Soma](./09-%20Select%202/usando%20SUM.png)
+**A. Estatísticas e Totais (SUM e AVG)**
+Cálculo de somatórios e médias aritméticas aplicadas às colunas de total de aulas e carga horária:
+![Soma e Média](./09-%20Select%202/usando%20SUM.png)
+
+**B. Funções de Agregação e Contagem**
+Demonstração do uso da função `COUNT(*)` para realizar o levantamento quantitativo de registros que atendem a critérios específicos (como carga horária ou ano):
 ![Contador](./09-%20Select%202/select%20count.png)
