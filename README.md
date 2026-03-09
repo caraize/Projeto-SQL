@@ -13,19 +13,15 @@ Repositório criado para documentar minha jornada de estudos em Banco de Dados, 
 * **07-PHPMyAdmin e Interface Web**: Gerenciamento de bancos de dados via interface web.
 * **08-Consultas Avançadas (DQL) - Parte 1**: O poder do `SELECT`. Filtros, ordenação e operadores lógicos.
 * **09-Consultas Avançadas (DQL) - Parte 2**: Operadores de semelhança (`LIKE`) e Funções de Agregação.
+* **10-Desafios Práticos**: Resolução de exercícios de fixação sobre consultas.
 
-## 📚 Conceitos Aprendidos na Aula 09
+## 📚 Conceitos Aplicados nos Exercícios (Aula 10)
 
-* **Operadores de Semelhança (Wildcards)**:
-    * `LIKE` e `NOT LIKE`: Busca de padrões de texto.
-    * `%` (Percentual): Substitui nenhum ou vários caracteres.
-    * `_` (Underline): Exige a existência de um caractere específico naquela posição.
-* **Cláusula DISTINCT**: Filtra o resultado para exibir apenas valores únicos, eliminando duplicatas.
-* **Funções de Agregação**:
-    * `COUNT()`: Conta a quantidade de registros que atendem a um critério.
-    * `MAX()` e `MIN()`: Identificam o maior e o menor valor de uma coluna.
-    * `SUM()`: Soma todos os valores de uma coluna numérica.
-    * `AVG()`: Calcula a média aritmética dos valores.
+Nesta etapa, apliquei todo o conhecimento de `SELECT` para resolver 9 desafios práticos, focando em:
+* **Filtros Compostos**: Uso de múltiplos operadores `AND` e `OR` para refinar buscas.
+* **Manipulação de Datas**: Consultas utilizando o padrão ISO (`YYYY-MM-DD`) com `BETWEEN`.
+* **Agregações Complexas**: Identificação de valores máximos, mínimos e médias com filtros de nacionalidade e gênero.
+* **Busca Padrão**: Uso do `%` para encontrar sobrenomes e iniciais específicas.
 
 ## 📸 Demonstração Prática
 
@@ -97,3 +93,15 @@ Cálculo de somatórios e médias aritméticas aplicadas às colunas de total de
 **B. Funções de Agregação e Contagem**
 Demonstração do uso da função `COUNT(*)` para realizar o levantamento quantitativo de registros que atendem a critérios específicos (como carga horária ou ano):
 ![Contador](./09-%20Select%202/select%20count.png)
+
+### Exercício 01: Filtro por Gênero
+Seleção simples de nomes filtrando pelo sexo feminino:
+![Exercício 1](./10-%20Exercicios%20Select%201%20e%202/select%20nome.png)
+
+### Exercício 05: Filtros Múltiplos e LIKE
+Consulta avançada envolvendo nome, nacionalidade, peso e gênero:
+![Exercício 5](./10-%20Exercicios%20Select%201%20e%202/lista%20completa.png)
+
+### Exercício 08: Funções de Agregação e Datas
+Localização do menor peso dentro de um intervalo de datas e nacionalidade específica:
+![Exercício 8](./10-%20Exercicios%20Select%201%20e%202/select%20completo%20mulheres.png)
