@@ -12,17 +12,20 @@ Repositório criado para documentar minha jornada de estudos em Banco de Dados, 
 * **06-Backup e Recuperação (DUMP)**: Exportação e importação do banco de dados completo.
 * **07-PHPMyAdmin e Interface Web**: Gerenciamento de bancos de dados via interface web.
 * **08-Consultas Avançadas (DQL) - Parte 1**: O poder do `SELECT`. Filtros, ordenação e operadores lógicos.
+* **09-Consultas Avançadas (DQL) - Parte 2**: Operadores de semelhança (`LIKE`) e Funções de Agregação.
 
-## 📚 Conceitos Aprendidos na Aula 08
+## 📚 Conceitos Aprendidos na Aula 09
 
-* **DQL (Data Query Language)**: Introdução ao comando `SELECT` para consulta de dados.
-* **Ordenação**: Uso do `ORDER BY` (Crescente) e `ORDER BY DESC` (Decrescente) para organizar resultados.
-* **Filtros de Seleção**: Seleção de colunas específicas em vez do uso genérico do `*`.
-* **Operadores Relacionais**: Filtragem com `>`, `<`, `>=`, `<=`, `!=` (diferente) e `=`.
-* **Intervalos e Listas**: 
-    * `BETWEEN`: Busca de valores dentro de um intervalo (ex: entre anos 2014 e 2016).
-    * `IN`: Busca de valores que coincidem com uma lista específica (ex: anos 2014 e 2016 apenas).
-* **Operadores Lógicos**: Refinamento de buscas utilizando `AND` (todas as condições verdadeiras) e `OR` (pelo menos uma verdadeira).
+* **Operadores de Semelhança (Wildcards)**:
+    * `LIKE` e `NOT LIKE`: Busca de padrões de texto.
+    * `%` (Percentual): Substitui nenhum ou vários caracteres.
+    * `_` (Underline): Exige a existência de um caractere específico naquela posição.
+* **Cláusula DISTINCT**: Filtra o resultado para exibir apenas valores únicos, eliminando duplicatas.
+* **Funções de Agregação**:
+    * `COUNT()`: Conta a quantidade de registros que atendem a um critério.
+    * `MAX()` e `MIN()`: Identificam o maior e o menor valor de uma coluna.
+    * `SUM()`: Soma todos os valores de uma coluna numérica.
+    * `AVG()`: Calcula a média aritmética dos valores.
 
 ## 📸 Demonstração Prática
 
@@ -82,3 +85,12 @@ Exemplo de listagem de cursos filtrados por ano e ordenados por nome:
 **B. Operadores Lógicos e Intervalos**
 Uso de `BETWEEN`, `AND` e `OR` para encontrar cursos com cargas horárias específicas:
 ![Select Avançado](./08-%20Select/between%20e%20order%20by.png)
+
+### 9. Pesquisas com LIKE (Wildcards)
+Exemplo de como filtrar nomes que possuem padrões específicos de letras:
+![Uso do LIKE](./09-%20Select%202/usando%20like%20%25.png)
+
+**A. Funções de Agregação (Estatísticas)**
+Uso do `COUNT`, `SUM` e `AVG` para extrair cálculos do banco de dados:
+![Agregação e Soma](./09-%20Select%202/usando%20SUM.png)
+![Contador](./09-%20Select%202/select%20count.png)
