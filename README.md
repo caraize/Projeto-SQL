@@ -15,13 +15,12 @@ Repositório criado para documentar minha jornada de estudos em Banco de Dados, 
 * **09-Consultas Avançadas (DQL) - Parte 2**: Operadores de semelhança (`LIKE`) e Funções de Agregação.
 * **10-Desafios Práticos**: Resolução de exercícios de fixação sobre consultas.
 
-## 📚 Conceitos Aplicados nos Exercícios (Aula 10)
+## 📚 Conceitos Aprendidos na Aula 11
 
-Nesta etapa, apliquei todo o conhecimento de `SELECT` para resolver 9 desafios práticos, focando em:
-* **Filtros Compostos**: Uso de múltiplos operadores `AND` e `OR` para refinar buscas.
-* **Manipulação de Datas**: Consultas utilizando o padrão ISO (`YYYY-MM-DD`) com `BETWEEN`.
-* **Agregações Complexas**: Identificação de valores máximos, mínimos e médias com filtros de nacionalidade e gênero.
-* **Busca Padrão**: Uso do `%` para encontrar sobrenomes e iniciais específicas.
+* **Agrupamento (`GROUP BY`)**: Agrega registros baseados em colunas específicas (ex: agrupar cursos por carga horária).
+* **Filtros em Grupos (`HAVING`)**: Diferente do `WHERE` (que filtra linhas), o `HAVING` é utilizado para filtrar os resultados após o agrupamento (ex: mostrar apenas grupos com mais de 3 registros).
+* **Subqueries (Subconsultas)**: Uso de um `SELECT` dentro de outro para realizar comparações dinâmicas, como filtrar registros que estão acima da média geral da tabela.
+
 
 ## 📸 Demonstração Prática
 
@@ -105,3 +104,11 @@ Consulta avançada envolvendo nome, nacionalidade, peso e gênero:
 ### Exercício 08: Funções de Agregação e Datas
 Localização do menor peso dentro de um intervalo de datas e nacionalidade específica:
 ![Exercício 8](./10-%20Exercicios%20Select%201%20e%202/select%20completo%20mulheres.png)
+
+### 11. Agrupamento com Filtro de Contagem
+Uso do `GROUP BY` associado ao `HAVING COUNT` para listar apenas cargas horárias que possuem um volume específico de cursos:
+![Agrupamento e Having](./11-%20Select%203/selecionando%20a%20carga%20e%20agrupando%20maior%20q%203.png)
+
+**A. Agrupamento com Subquery Dinâmica**
+Exemplo avançado onde o banco calcula a média de carga e filtra os grupos que estão acima desse valor automaticamente:
+![Subquery e Having](./11-%20Select%203/carga%20maior%20que%20a%20media.png)
