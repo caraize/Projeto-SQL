@@ -1,0 +1,28 @@
+Relacionamento de tabela -> Modelo Relacional
+
+Mostrando entidades, atributos e relacionamentos
+
+Entidades são os contêiners, no caso são as tabelas
+Atributos são os dados, no caso as linhas
+Relacionamento entre duas entidades forma o Diagrama que se chama der
+Cardinalidade simples ou múltipla, 1 ou N
+
+Chave primaria = identificador
+Chave estrangeira = chave primaria de alguem 
+
+Relacionamento 1 para 1:
+escolher a entidade dominante, pegue a chave da outra entidade e transfira(virando chave estrangeira) 
+
+Relacionamento 1 para N:
+Pega a chave da entidade 1 e transfere para entidade N(virando chave estrangeira)
+
+Relacionamento N para N:
+Desmembrar sempre. O relacionamento vira entidade, ou seja, se for N to N vai virar-> 1 NN 1. Sendo assim virando um relacionamento 1 para N.
+
+   n                  n
+CLIENTE > compra > PRODUTO
+
+o relacionamento (compra) vira entidade
+
+    1       nn        1
+CLIENTE > COMPRA > PRODUTO

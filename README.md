@@ -16,13 +16,18 @@ Repositório criado para documentar minha jornada de estudos em Banco de Dados, 
 * **10-Desafios Práticos**: Resolução de exercícios de fixação sobre consultas.
 * **11-Consultas Avançadas (Parte 3)**: Agrupamentos com `GROUP BY` e cláusula `HAVING`.
 * **12-Exercícios Select (Parte 3)**: Desafios práticos envolvendo agrupamentos e subqueries.
+* **13-Modelo Relacional (Teoria)**: Entidades, Atributos e Cardinalidade (ER e DER).
 
-## 📚 Conceitos Aplicados nos Exercícios (Aula 12)
+## 📚 Conceitos Aprendidos na Aula 13
 
-Nesta fase de exercícios, foquei na extração de dados estatísticos complexos:
-* **Quantitativos por Categoria**: Uso de `GROUP BY` para criar censos (ex: total de pessoas por profissão).
-* **Filtros Pós-Agrupamento**: Aplicação do `HAVING` para filtrar resultados que dependem de contagens (ex: países com mais de 3 registros).
-* **Lógica Dinâmica**: Uso de subqueries dentro do `HAVING` para comparar dados individuais com médias globais da tabela.
+Nesta etapa teórica, foquei na modelagem de dados e como as tabelas se conectam logicamente:
+* **Entidades e Atributos**: Definição de tabelas (contêineres) e seus campos (dados).
+* **Chave Estrangeira (Foreign Key)**: O elo de ligação que referencia a Chave Primária de outra tabela.
+* **Cardinalidade**:
+    * **1:1**: Uma entidade se relaciona com apenas uma outra (ex: Pessoa e CPF).
+    * **1:N**: Uma entidade pode se relacionar com várias outras (ex: Um Cliente e vários Pedidos).
+    * **N:N**: Várias entidades se relacionam com várias outras. **Regra de Ouro**: O relacionamento vira uma nova entidade (tabela intermediária) para manter a integridade.
+* **DER (Diagrama Entidade Relacionamento)**: Representação visual da estrutura do banco.
 
 ## 📸 Demonstração dos Desafios
 
@@ -122,3 +127,7 @@ Lista de países com contagem de registros, filtrando apenas nacionalidades com 
 **A. Exercício Select 3 - 04: Análise de Peso e Altura (Subquery)**
 Consulta avançada agrupada por altura, filtrando pessoas acima de 100kg que superam a média de altura geral do banco:
 ![Exercício 04](./12-%20Exercicios%20select%203/peso%20maior%20que%20100%20e%20altura%20maior%20que%20a%20media.png)
+
+### 13. Relacionamento N para N (Entidade Associativa)
+Exemplo de como um relacionamento "Muitos para Muitos" entre Cliente e Produto é desmembrado em uma nova tabela (Compra) para normalização do banco:
+![Diagrama de Relacionamento](.//13-%20Modelo%20relacional/relacionando%20entidades.png)
