@@ -95,15 +95,15 @@ Cálculo de somatórios e médias aritméticas aplicadas às colunas de total de
 Demonstração do uso da função `COUNT(*)` para realizar o levantamento quantitativo de registros que atendem a critérios específicos (como carga horária ou ano):
 ![Contador](./09-%20Select%202/select%20count.png)
 
-### Exercício 01: Filtro por Gênero
+### 10. Exercícios Select - 01: Filtro por Gênero
 Seleção simples de nomes filtrando pelo sexo feminino:
 ![Exercício 1](./10-%20Exercicios%20Select%201%20e%202/select%20nome.png)
 
-### Exercício 05: Filtros Múltiplos e LIKE
+**A. Exercício Select - 05: Filtros Múltiplos e LIKE**
 Consulta avançada envolvendo nome, nacionalidade, peso e gênero:
 ![Exercício 5](./10-%20Exercicios%20Select%201%20e%202/lista%20completa.png)
 
-### Exercício 08: Funções de Agregação e Datas
+**B. Exercício Select - 08: Funções de Agregação e Datas**
 Localização do menor peso dentro de um intervalo de datas e nacionalidade específica:
 ![Exercício 8](./10-%20Exercicios%20Select%201%20e%202/select%20completo%20mulheres.png)
 
@@ -115,10 +115,10 @@ Uso do `GROUP BY` associado ao `HAVING COUNT` para listar apenas cargas horária
 Exemplo avançado onde o banco calcula a média de carga e filtra os grupos que estão acima desse valor automaticamente:
 ![Subquery e Having](./11-%20Select%203/carga%20maior%20que%20a%20media.png)
 
-### Exercício Select 3 - 03: Nacionalidades Estrangeiras
+### 12. Exercícios Select 3 - 03: Nacionalidades Estrangeiras
 Lista de países com contagem de registros, filtrando apenas nacionalidades com volume relevante de dados:
 ![Exercício 03](./12-%20Exercicios%20select%203/quantas%20pessoas%20são%20estrangeiras,%20mas%20so%20se%20for%20mais%20que%20duas.png)
 
-### Exercício Select 3 - 04: Análise de Peso e Altura (Subquery)
+**A. Exercício Select 3 - 04: Análise de Peso e Altura (Subquery)**
 Consulta avançada agrupada por altura, filtrando pessoas acima de 100kg que superam a média de altura geral do banco:
 ![Exercício 04](./12-%20Exercicios%20select%203/peso%20maior%20que%20100%20e%20altura%20maior%20que%20a%20media.png)
