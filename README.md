@@ -18,14 +18,29 @@ Repositório criado para documentar minha jornada de estudos em Banco de Dados, 
 * **12-Exercícios Select (Parte 3)**: Desafios práticos envolvendo agrupamentos e subqueries.
 * **13-Modelo Relacional (Teoria)**: Entidades, Atributos e Cardinalidade (ER e DER).
 * **14-Chaves Estrangeiras e JOINs**: Relacionando tabelas e integridade de dados.
+* **15-Relacionamentos N:N (Muitos para Muitos)**: O uso de tabelas associativas e múltiplos JOINs.
 
-## 📚 Conceitos Aprendidos na Aula 14
+### 🛠️ Módulo 1: Fundamentos, DDL e DML (Aulas 01 a 07)
+Focado na criação da estrutura e manipulação básica dos dados.
+* **DDL (Data Definition Language)**: Criação de bancos, tabelas (`CREATE`), modificação de colunas (`ALTER`) e exclusão de estruturas (`DROP`).
+* **DML (Data Manipulation Language)**: Inserção de dados (`INSERT`), atualização de registros (`UPDATE`) e exclusão de linhas (`DELETE`, `TRUNCATE`).
+* **Ferramentas**: Domínio do MySQL Workbench e PHPMyAdmin.
+* **Segurança**: Exportação e Importação de Backups (DUMP).
 
-* **ACID**: Entendimento dos pilares de uma transação (Atomicidade, Consistência, Isolamento e Durabilidade).
-* **Chave Estrangeira (FOREIGN KEY)**: Implementação física do relacionamento entre tabelas, garantindo a integridade referencial.
-* **Inner Join**: Consulta que retorna apenas os registros que possuem correspondência em ambas as tabelas (interseção).
-* **Left/Right Outer Join**: Consultas que priorizam uma das tabelas, trazendo todos os seus registros, mesmo aqueles que não possuem relação com a outra tabela (campos nulos).
-* **Apelidos (Alias - AS)**: Uso de simplificações para nomes de tabelas, facilitando a escrita e leitura de queries complexas.
+### 🔍 Módulo 2: DQL - O Poder das Consultas (Aulas 08 a 12)
+Focado na extração de inteligência e relatórios a partir dos dados.
+* **Filtros e Ordenação**: Uso de `WHERE`, `ORDER BY`, `BETWEEN` e `IN`.
+* **Busca Textual**: Operadores de semelhança `LIKE` e Wildcards (`%`, `_`).
+* **Agregações e Estatísticas**: Funções `COUNT`, `SUM`, `AVG`, `MAX` e `MIN`.
+* **Agrupamentos**: Domínio de `GROUP BY` e filtros em grupos com `HAVING`.
+* **Subqueries**: Consultas dinâmicas aninhadas.
+
+### 🔗 Módulo 3: Modelagem e Relacionamentos (Aulas 13 a 15)
+Focado na arquitetura de sistemas e conexão entre tabelas.
+* **Modelo Relacional**: Entendimento de Cardinalidade (1:1, 1:N, N:N) e Normalização.
+* **Integridade**: Implementação de Chaves Primárias (PK) e Chaves Estrangeiras (FK).
+* **Conceito ACID**: Atomicidade, Consistência, Isolamento e Durabilidade.
+* **JOINs Avançados**: Junção de múltiplas tabelas com `INNER JOIN` e `OUTER JOIN` (Left/Right).
 
 ## 📸 Demonstração dos Desafios
 
@@ -137,3 +152,7 @@ Utilização do `INNER JOIN` com a cláusula `ON` para listar alunos e seus resp
 **A. Diferença com Left Outer Join**
 Exemplo do `LEFT OUTER JOIN`, onde todos os alunos são listados, inclusive aqueles que ainda não possuem um curso preferido vinculado:
 ![Left Join](./14-%20Chave%20estrangeira%20e%20Join/outer%20join.png)
+
+### 15. Junção de Três Tabelas (Múltiplo JOIN)
+Resultado da consulta que conecta alunos aos seus cursos através da tabela assiste, exibindo nomes reais em vez de apenas IDs:
+![Múltiplo JOIN](./15-%20Inner%20Join/inner%20com%203%20tabelas.png)
