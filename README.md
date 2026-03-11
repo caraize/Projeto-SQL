@@ -17,17 +17,15 @@ Repositório criado para documentar minha jornada de estudos em Banco de Dados, 
 * **11-Consultas Avançadas (Parte 3)**: Agrupamentos com `GROUP BY` e cláusula `HAVING`.
 * **12-Exercícios Select (Parte 3)**: Desafios práticos envolvendo agrupamentos e subqueries.
 * **13-Modelo Relacional (Teoria)**: Entidades, Atributos e Cardinalidade (ER e DER).
+* **14-Chaves Estrangeiras e JOINs**: Relacionando tabelas e integridade de dados.
 
-## 📚 Conceitos Aprendidos na Aula 13
+## 📚 Conceitos Aprendidos na Aula 14
 
-Nesta etapa teórica, foquei na modelagem de dados e como as tabelas se conectam logicamente:
-* **Entidades e Atributos**: Definição de tabelas (contêineres) e seus campos (dados).
-* **Chave Estrangeira (Foreign Key)**: O elo de ligação que referencia a Chave Primária de outra tabela.
-* **Cardinalidade**:
-    * **1:1**: Uma entidade se relaciona com apenas uma outra (ex: Pessoa e CPF).
-    * **1:N**: Uma entidade pode se relacionar com várias outras (ex: Um Cliente e vários Pedidos).
-    * **N:N**: Várias entidades se relacionam com várias outras. **Regra de Ouro**: O relacionamento vira uma nova entidade (tabela intermediária) para manter a integridade.
-* **DER (Diagrama Entidade Relacionamento)**: Representação visual da estrutura do banco.
+* **ACID**: Entendimento dos pilares de uma transação (Atomicidade, Consistência, Isolamento e Durabilidade).
+* **Chave Estrangeira (FOREIGN KEY)**: Implementação física do relacionamento entre tabelas, garantindo a integridade referencial.
+* **Inner Join**: Consulta que retorna apenas os registros que possuem correspondência em ambas as tabelas (interseção).
+* **Left/Right Outer Join**: Consultas que priorizam uma das tabelas, trazendo todos os seus registros, mesmo aqueles que não possuem relação com a outra tabela (campos nulos).
+* **Apelidos (Alias - AS)**: Uso de simplificações para nomes de tabelas, facilitando a escrita e leitura de queries complexas.
 
 ## 📸 Demonstração dos Desafios
 
@@ -131,3 +129,11 @@ Consulta avançada agrupada por altura, filtrando pessoas acima de 100kg que sup
 ### 13. Relacionamento N para N (Entidade Associativa)
 Exemplo de como um relacionamento "Muitos para Muitos" entre Cliente e Produto é desmembrado em uma nova tabela (Compra) para normalização do banco:
 ![Diagrama de Relacionamento](.//13-%20Modelo%20relacional/relacionando%20entidades.png)
+
+### 14. Relacionamento com Inner Join
+Utilização do `INNER JOIN` com a cláusula `ON` para listar alunos e seus respectivos cursos preferidos, organizados por nome:
+![Inner Join](./14-%20Chave%20estrangeira%20e%20Join/inner.png)
+
+**A. Diferença com Left Outer Join**
+Exemplo do `LEFT OUTER JOIN`, onde todos os alunos são listados, inclusive aqueles que ainda não possuem um curso preferido vinculado:
+![Left Join](./14-%20Chave%20estrangeira%20e%20Join/outer%20join.png)
