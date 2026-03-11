@@ -14,15 +14,17 @@ Repositório criado para documentar minha jornada de estudos em Banco de Dados, 
 * **08-Consultas Avançadas (DQL) - Parte 1**: O poder do `SELECT`. Filtros, ordenação e operadores lógicos.
 * **09-Consultas Avançadas (DQL) - Parte 2**: Operadores de semelhança (`LIKE`) e Funções de Agregação.
 * **10-Desafios Práticos**: Resolução de exercícios de fixação sobre consultas.
+* **11-Consultas Avançadas (Parte 3)**: Agrupamentos com `GROUP BY` e cláusula `HAVING`.
+* **12-Exercícios Select (Parte 3)**: Desafios práticos envolvendo agrupamentos e subqueries.
 
-## 📚 Conceitos Aprendidos na Aula 11
+## 📚 Conceitos Aplicados nos Exercícios (Aula 12)
 
-* **Agrupamento (`GROUP BY`)**: Agrega registros baseados em colunas específicas (ex: agrupar cursos por carga horária).
-* **Filtros em Grupos (`HAVING`)**: Diferente do `WHERE` (que filtra linhas), o `HAVING` é utilizado para filtrar os resultados após o agrupamento (ex: mostrar apenas grupos com mais de 3 registros).
-* **Subqueries (Subconsultas)**: Uso de um `SELECT` dentro de outro para realizar comparações dinâmicas, como filtrar registros que estão acima da média geral da tabela.
+Nesta fase de exercícios, foquei na extração de dados estatísticos complexos:
+* **Quantitativos por Categoria**: Uso de `GROUP BY` para criar censos (ex: total de pessoas por profissão).
+* **Filtros Pós-Agrupamento**: Aplicação do `HAVING` para filtrar resultados que dependem de contagens (ex: países com mais de 3 registros).
+* **Lógica Dinâmica**: Uso de subqueries dentro do `HAVING` para comparar dados individuais com médias globais da tabela.
 
-
-## 📸 Demonstração Prática
+## 📸 Demonstração dos Desafios
 
 ### 1. Modelagem Inicial
 Estrutura da tabela após os primeiros comandos:
@@ -112,3 +114,11 @@ Uso do `GROUP BY` associado ao `HAVING COUNT` para listar apenas cargas horária
 **A. Agrupamento com Subquery Dinâmica**
 Exemplo avançado onde o banco calcula a média de carga e filtra os grupos que estão acima desse valor automaticamente:
 ![Subquery e Having](./11-%20Select%203/carga%20maior%20que%20a%20media.png)
+
+### Exercício Select 3 - 03: Nacionalidades Estrangeiras
+Lista de países com contagem de registros, filtrando apenas nacionalidades com volume relevante de dados:
+![Exercício 03](./12-%20Exercicios%20select%203/quantas%20pessoas%20são%20estrangeiras,%20mas%20so%20se%20for%20mais%20que%20duas.png)
+
+### Exercício Select 3 - 04: Análise de Peso e Altura (Subquery)
+Consulta avançada agrupada por altura, filtrando pessoas acima de 100kg que superam a média de altura geral do banco:
+![Exercício 04](./12-%20Exercicios%20select%203/peso%20maior%20que%20100%20e%20altura%20maior%20que%20a%20media.png)
