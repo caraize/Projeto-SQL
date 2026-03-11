@@ -1,0 +1,702 @@
+create database cadastro; 
+#criando um banco de dados com nome de cadastro
+
+create table pessoas(
+nome varchar(30),
+idade tinyint(3), 
+sexo char(1),
+peso float,
+altura float,
+nacionalidade varchar(20)
+);
+#criando a tabela pessoas e atribuindo tipos as colunas
+
+
+desc pessoas;
+#ele mostra a estrutura interna, ou seja, a descrição da tabela pessoas, no caso, com os nomes e tipos de cada coluna
+
+drop database cadastro;
+#apaga o banco de dados, ou seja, create = cria, drop = apaga
+
+
+create database cadastro
+default character set utf8
+default collate utf8_general_ci;
+#criando o banco de dados cadastro mas com caracteres acentuados, no padrao brasileiro
+
+create table pessoas(
+id int NOT NULL AUTOM_INCREMENT, #adicionando a coluna ID dizendo que ela nao pode ser vazia e que vai ser auto incrementada 
+nome varchar(30) NOT NULL, #atribuindo o tipo ao nome e dizendo que esse espaço nao pode ser vazio
+nascimento data, 
+sexo enum('M','F'),
+peso decimal(5,2), #ou seja, pode ter apenas 5 numeros e a virgula vem apos o segundo, exemplo 112,50
+altura decimal(3,2), #ou seja, pode ter apenas 3 numeros e a virgula vem apos o segundo, exemplo 1,80
+nacionalidade varchar(20) default 'Brasil'
+primary key (id) #adicionando a chave primaria ao ID
+) default charset = utf8;
+#criando a tabela pessoas novamente e atribuindo tipos as colunas mais especificos e melhores 
+
+-----------------------------------------------------------------
+INSERT INTO
+#inserindo dados na tabela
+insert into pessoas #comando para inserir dados a tabela pessoas
+(id, nome, nascimento, sexo, peso, altura, nascionalidade) #estrutura
+values 
+('1', 'Joao', '1984-09-29', 'M', '80.2', '1.83', 'Brasil'); #dados
+
+
+#inserindo com auto increment
+insert into pessoas #comando para inserir dados a tabela pessoas
+(nome, nascimento, sexo, peso, altura, nascionalidade) #estrutura
+values 
+('Maria', '1923-04-21', 'F', '54.2', '1.63', 'Portugal'); #nao colocou o ID, pois como é auto increment nao é necessário
+
+#inserindo com default
+insert into pessoas #comando para inserir dados a tabela pessoas
+(id, nome, nascimento, sexo, peso, altura, nascionalidade) #estrutura
+values 
+(default, 'Lucas', '2014-11-11', 'M', '35.7', '1.52', default);
+
+
+select * from pessoas; #ira mostrar todos os dados da tabela pessoas, ou seja, ela preenchida
+
+#inserindo de maneira mais profissional
+insert into pessoas values #comando para inserir dados a tabela pessoas
+#pode ocultar a estrutura, se os dados forem na ordem correta
+(default, 'Lana', '2000-04-11', 'F', '52.7', '1.59', default);
+
+#inserindo varios
+insert into pessoas values #inserindo vários de uma só vez
+#pode ocultar a estrutura, se os dados forem na ordem correta
+(default, 'Ricardo', '1995-12-25', 'M', '85.2', '1.80, default),
+(default, 'Sabrina', '1988-07-02', 'F', '61.0', '1.65, default),
+(default, 'Marcos', '2005-01-15', 'M', '70.5', '1.74, default);
+
+---------------------------------------------------------------------------
+ALTER TABLE E DROP TABLE
+
+#adicionando colunas
+alter table pessoas #alterando a tabela pessoas
+add column profissão varchar(10); #adicionando a coluna profissão e passando o atributo
+
+#removendo colunas
+alter table pessoas #alterando a tabela pessoas
+drop column profissão; #remover a coluna profissão
+
+#definindo lugar para adicionar
+alter table pessoas #alterando a tabela pessoas
+add column profissão varchar(10) after nome; #adicionando a coluna profissão após o nome
+
+desc pessoas; #para conferir, se estiver certo, ficara, id>nome>profissao
+
+#definindo lugar para adicionar
+alter table pessoas #alterando a tabela pessoas
+add column código int first; #adicionando a coluna codigo em primeiro lugar
+
+#se quiser colocar em primeiro, usar first. Se quiser colocar no meio usar after. Se quiser colocar em ultimo só deixar normal
+
+#modificando definições da coluna
+alter table pessoas #alterando a tabela pessoas
+modify column profissão varchar(20) not null default ''; #ele modifica o tipo primitivo e até adiciona
+
+
+#renomeando coluna
+alter table pessoas #alterando a tabela pessoas
+change column profissão porf varchar(20) not null default ''; #renomeando o nome da coluna profissão para prof e também passando os mesmo valores, se não ele se perde
+
+
+#renomeando tabela
+alter table pessoas #alterando a tabela pessoas
+rename to gafanhotos; renomeando o nome da tabela inteira de pessoas para gafanhotos
+
+
+
+#criando mais um tabela
+create table if not exists cursos ( #criando uma tabela se não existir com o mesmo nome
+nome varchar(30) not null unique, #unique significa que não pode ter outro com o mesmo nome
+descrição text,
+carga int unsigned, #significa sem sinal, ou seja, não pode negativo
+totalaulas int unsigned,
+ano year default '2026'
+) default charset = utf8;
+
+
+
+#adicionando coluna idcurso em primeiro
+alter table cursos
+add column idcurso int first; #adicionando coluna idcurso em primeiro
+
+#colocando a coluna idcurso como chave primaria
+alter table cursos
+add primary key (idcurso);
+
+
+#conferindo
+desc cursos;
+
+
+#apagando tabela
+##criando tabela qualquer para apagar
+create table if not exists teste(
+id int,
+nome varchar(20),
+idade int,
+primary key (id)
+);
+
+##adicionando dados qualquer para apagar
+insert into teste value
+('1', 'Gabriel', '24'),
+('2', 'Maria', '19'),
+('3', 'Giovanni', '25');
+
+##conferindo
+select * from teste
+
+##apagando de fato
+drop table if exists teste;
+
+----------------------------------------------------------------------------------
+UPDATE, DELETE e TRUNCATE
+
+#inserindo dados na tabela cursos
+insert into cursos values
+('1', 'HTML5', 'Curso de HTML5', '40', '37', '2014'),
+('2','Algoritmos','Lógica de Programação','20','15','2014'),
+('3','Photoshop','Dicas de Photoshop CC','10','8','2014'),
+('4','PHP','Curso de PHP para iniciantes','40','20','2025'),
+('5','Java','Introdução à Linguagem Java','40','29','2025'),
+('6','MySQL','Bancos de Dados MySQL','30','15','2016'),
+('7','Word','Curso completo de Word','40','30','2016'),
+('8','Sapateado','Danças Rítmicas','40','30','2018'),
+('9','Cozinha Árabe','Aprenda a fazer Kibe','40','30','2018'),
+('10','YouTuber','Gerar polêmica e ganhar inscritos','5','2','2018');
+
+#manipulando linhas que estão erradas
+update cursos
+set nome = 'HTML5'
+where idcurso = '1'
+
+#mudando 2 erros ao mesmo tempo
+update cursos
+set nome = 'PHP', ano = '2015'
+where idcurso = '4';
+
+
+#mudando 3 erros ao mesmo tempo
+update cursos
+set nome = 'Java', carga = '40', ano = '2015'
+where idcurso = '5'
+limit 1; #isso faz com que afete apenas uma linha, apesar de já estar usando a chave primaria como parametro
+
+
+#removendo linhas
+delete from cursos
+where idcurso = '8';
+
+#removendo varias linhas
+delete from cursos
+where ano = '2022'
+limit 3;#podemos usar o limit ou não
+
+
+#removendo todas as linhas da tabela
+truncate table cursos;
+---------------------------------------------------------------------------------------
+Fazendo um DUMP
+
+#dessa maneira terá um DUMP, um backup do Banco de dado
+server > data export > selecionar BD > exportar arquivo único > include database schema
+
+#vamos excluir o Banco para abri-lo novamente a partir do DUMP
+drop database cadastro;
+
+#para importar fazendo assim
+server > data import > importar do arquivo > selecionar BD > start > atualizar
+
+#mostrando as tabelas
+show tables;
+
+#verificando a descrição das tabelas
+desc gafanhotos;
+desc cursos;
+
+#verificando os dados da tabela
+select * from gafanhotos;
+select * from cursos;
+--------------------------------------------------------------------------------------------
+Usando PHPMyAdmin aula filer
+
+#criando bd pelo PHPMyAdmin e pegando o código via terminal > show create database exemplo;
+CREATE DATABASE `exemplo` 
+
+#criando tabela pelo PHPMyAdmin e pegando o código via terminal > show create table amigos;
+CREATE TABLE `amigos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tel` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nome` (`nome`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+#alterando a linha da tabela tel para telefone
+ALTER TABLE `amigos` CHANGE `tel` `telefone` VARCHAR(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+#adicionando coluna idade depois de nome
+ALTER TABLE `amigos` ADD `idade` INT NOT NULL AFTER `nome`;
+
+#apagando coluna idade
+"ALTER TABLE `amigos` DROP `idade`;"
+
+#adicionando coluna sexo
+ALTER TABLE `amigos` ADD `sexo` ENUM('M', 'F') NOT NULL AFTER `nome`;
+
+
+#inserindo dados na tabela
+INSERT INTO `amigos` (`id`, `nome`, `sexo`, `telefone`) VALUES (NULL, 'Maria', 'F', '22223333'), (NULL, 'Joao', 'M', '33332222');
+INSERT INTO `amigos` (`id`, `nome`, `sexo`, `telefone`) VALUES (NULL, 'José', 'M', '44443333'), (NULL, 'Ana', 'F', '11112222');
+
+#atualizando informações com Update
+UPDATE `amigos` SET `telefone` = '99998888' WHERE `amigos`.`id` = 2;
+
+#apagando dados da tabela
+"DELETE FROM amigos WHERE `amigos`.`id` = 4"?
+
+#apagando a tabela amigos
+DROP TABLE `amigos`
+
+#apagando o banco de dados exemplo
+DROP DATABASE `exemplo`;
+---------------------------------------------------------------------------------------------------------------
+Select parte1
+
+#abrindo tabela e conferindo
+use cursos;
+select * from cursos;
+
+
+#pegando tudo de curso, mas agora ordenando por nome- crescente
+select * from cursos
+order by nome;
+
+#pegando tudo de curso, mas agora ordenando por nome- decrescente
+select * from cursos
+order by nome desc;
+
+
+#pegando parâmetros desejados da tabela cursos, ordenando por nome
+select nome, carga, ano from cursos
+order by nome;
+
+#pegando tudo da tabela cursos, porém somente onde o ano for 2016 e ordenando por nome
+select * from cursos
+where ano = '2016'
+order by nome;
+
+#pegando nome e carga da tabela cursos, porém somente se o ano for 2016 e ordenando por nome
+select nome, carga from cursos
+where ano = '2016'
+order by nome;
+
+
+#pegando nome, ano e descricao da tabela cursos, porém somente se o ano for menor ou igual a 2015 e ordenando por ano e nome
+select nome, descricao, ano from cursos
+where ano  <= '2015'
+order by ano, nome;
+
+
+#pegando nome, ano e descricao da tabela cursos, porém somente se o ano for maior ou igual a 2016 e ordenando por ano e nome
+select nome, descricao, ano from cursos
+where ano  >= '2016'
+order by ano, nome;
+
+
+#pegando nome, ano e descricao da tabela cursos, porém somente se o ano for diferente a 2016 e ordenando por ano e nome
+select nome, descricao, ano from cursos
+where ano  != '2016'
+order by ano, nome;
+
+
+#selecionando o nome e ano da tabela cursos, onde o ano seja entre 2014 e 2016
+select nome, ano from cursos
+where ano between 2014 and 2016;
+
+
+#selecionando o nome e ano da tabela cursos, onde o ano seja entre 2014 e 2016, agora ordenando por ano decrescente e nome
+select nome, ano from cursos
+where ano between 2014 and 2016
+order by ano desc, nome;
+
+
+
+#selecionando o nome, descrição e ano da tabela cursos, onde o ano seja 2014 e 2016, ordenando por ano decrescente
+select nome, descricao, ano from cursos
+where ano in (2014, 2016)
+order by ano desc;
+
+
+#usando operadores logicos para seleções mais apuradas, no caso o E
+select * from cursos
+where carga > 35 and totaulas < 30;
+
+
+#usando operadores logicos para seleções mais apuradas, no caso o OU
+select nome, carga, totaulas from cursos
+where carga > 35 or totaulas < 30;
+
+
+SELECT É UM DQL
+
+----------------------------------------------------------------------------------------------------
+select2
+
+
+#usando like no lugar do igual, para pesquisar nomes que começam com um parametro
+select * from cursos
+where nome like 'P%';
+
+
+#usando like no lugar do igual, para pesquisar nomes que terminam com um parametro
+select * from cursos
+where nome like '%s';
+
+
+#usando like no lugar do igual, para pesquisar nomes que terminam, comecem ou esteja no meio do parâmetro passado
+select * from cursos
+where nome like '%a%';
+
+
+#usando not like, ou seja, ele vai mostrar o que não tem A na coluna nome, no caso o parâmetro passado
+select * from cursos
+where nome not like '%a%';
+
+
+
+
+#atualizando a tabela para fazer testes
+update cursos set nome = 'PáOO' where idcurso = '9';
+
+#usando o mesmo comando, agora o PáOO não aparece foi agora tem o á
+select * from cursos
+where nome not like '%a%';
+
+
+#voltando
+UPDATE `cadastro`.`cursos` SET `nome` = 'POO' WHERE (`idcurso` = '9');
+
+
+#aprimorando para dessa forma pegar tudo que comece com PH e terminem com P, no caso PHP e Photoshop
+select * from cursos
+where nome like 'ph%p';
+
+
+#aprimorando ainda mais, para dessa forma pegar tudo que comece com PH e tenha P no meio ou final, no caso PHP,  Photoshop, PHP4, PHP7, Photoshop5
+select * from cursos
+where nome like 'ph%p%';
+
+
+#com o undeline, ele exige que tenha mais algum caracter, dessa forma pegando apenas PHP4, PHP7, Photoshop5
+select * from cursos
+where nome like 'ph%p_';
+
+
+#nesse parâmetro ele pega os que começam com P, tenha algo depois, tenha outro P, e tenha(ou não) algo apos
+select * from cursos
+where nome like 'p_p%';
+
+
+#nesse parâmetro ele pega um nome que comece com P tenha algo no meio(2x) e termine (ou não) com T
+select * from cursos
+where nome like 'p__t%';
+
+
+
+
+#usando distinct, nesse caso ele vai pegar todas as nacionalidades repetidas vezes
+select nacionalidade from cursos;
+
+
+#usando distinct, nesse caso ele vai pegar todas as nacionalidades apenas 1x
+select distinct nacionalidade from cursos;
+
+
+
+
+#agregação
+#aqui ele vai contar quantas cargas são maiores que 40 na tabela cursos
+select count(*) from cursos where carga > 40;
+
+
+#para ver o tamanho da carga, ira mostrar todas
+select * from cursos order by carga;
+
+#dessa forma ele ira mostrar a maior carga 
+select max(carga) from cursos ;
+
+
+#nesse caso ele vai pegar todos do ano de 2016
+select * from cursos where ano = '2016';
+
+#e aqui ele vai mostrar o maior resultado do totaulas
+select max(totaulas) from cursos where ano = '2016';
+
+
+#para pegar a mesma coisa é o MIN. No exemplo só muda que acrescentei o nome
+select nome, min(totaulas) from cursos where ano = '2016';
+
+
+#para somar utilizamos o SUM, no exemplo coloquei para ele somar toda a coluna de totaulas
+select sum(totaulas) from cursos where ano = '2016';
+
+
+#para tirar a media utilizamos o AVG, no caso ele vai somar todos o totaulas de 2016 e dividir pelo resultado
+select AVG(totaulas) from cursos where ano = '2016';
+--------------------------------------------------------------------------------------------------------------
+Exercicios Select 1 e 2
+1- Uma lista com o nome de todos as gafanhotas
+R: select nome from gafanhotos where sexo = 'F';
+
+2- Uma lista com os dados de todos aqueles que nasceram entre 1/jan/2000 e 31/12/2015
+R:select * from gafanhotos where nascimento between '2000-01-01' and '2015-12-31' order by nascimento;
+
+
+3- Uma lista de todos os homens que trabalham como programadores
+R:select * from gafanhotos where profissao = 'programador' and sexo = 'M';
+
+4- Uma lista com todos os dados de todas as mulheres que nasceram no Brasil e que tem seu nome iniciando com a letra J
+R: select * from gafanhotos where nacionalidade = 'Brasil' and sexo = 'F' and nome like 'J%';
+
+5-Uma lista com o nome e a nacionalidade de todos os homens que tem Silva no nome, não nasceram no brasil e pesam menos de 100kg
+R: select nome, nacionalidade from gafanhotos where sexo = 'M' and nome like '%silva%' and nacionalidade != 'brasil' and peso < '100';
+
+6- Qual é a maior altura entre gafanhotos homens morando no brasil ?
+R: select max(altura) from gafanhotos where sexo = 'M' and nacionalidade = 'Brasil';
+
+7- Qual a media de peso dos gafanhotos cadastrados ?
+R: select AVG(peso) from gafanhotos;
+
+8- Qual é o menor peso entre as gafanhotas mulheres que nasceram fora do brasil e entre 01/01/1990 e 31/12/2000
+R:select min(peso) from gafanhotos where sexo = 'F' and nacionalidade != 'Brasil' and nascimento between '1990-01-01' and '2000-12-31';
+
+9- Quantas gafanhotas mulheres tem mais de 1.90m de altura ?
+R: select count(*) from gafanhotos where sexo = 'F' and altura > '1.90';
+
+--------------------------------------------------------------------------------------------------------------
+select 3
+
+#agrupando registros
+
+#agrupando registros ele mostra quantos registros apareceram e quantas vezes, nesse exemplo só agrupa
+select carga from cursos group by carga;
+
+#agrupando registros ele mostra quantos registros apareceram e quantas vezes, nesse exemplo ele agrupa e totaliza
+select carga, count(*) from cursos group by carga;
+
+#nesse caso ele vai pegar as cargas, agrupar e contar, porém só vai mostrar caso o contador seja > 3
+select carga, count(nome) from cursos group by carga having count(nome) > 3;
+
+
+#testando parâmetro avg com media
+select avg(carga) from cursos;
+#no caso o resultado foi 36.5
+
+#dessa maneira...
+#selecionamos a carga e o contados se o ano for maior que 2015, agrupando pela carga, porém a carga precisa ser maior que a media (36.6)
+select carga, count(*)  from cursos where ano > 2015 group by carga having carga > (select avg(carga) from cursos);
+
+
+---------------------------------------------------------------------------------------------------------------
+exercícios select 3
+
+1- Uma lista com as profissões dos gafanhotos e seus respectivos quantitativos
+select profissao, count(*) from gafanhotos group by profissao;
+
+2- Quantos gafanhotos homens e quantas mulheres nasceram após 01-01-2005
+select sexo, count(*)from gafanhotos where nascimento > '2005-01-01' group by sexo;
+
+
+3- Uma lista com os gafanhotos que nasceram fora do Brasil, mostrando o pais de origem e o total de pessoas nascidas la. Só nos interessam os países que tiverem mais de 3 gafanhotos com essa nacionalidade
+select nacionalidade, count(*) from gafanhotos where nacionalidade != 'Brasil' group by nacionalidade having count(*) > 2;
+
+
+4- Uma lista agrupada pela altura dos gafanhotos, mostrando quantas pessoas pesam mais de 100kg e que estão acima da media de altura de todos os cadastrados
+
+select avg(altura) from gafanhotos; = 1.66
+
+select altura, peso, count(*) from gafanhotos where peso > '100' group by altura having altura > (select avg(altura) from gafanhotos);
+
+-------------------------------------------------------------------------------------------------------------
+Relacionamento de tabela -> Modelo Relacional
+
+Mostrando entidades, atributos e relacionamentos
+
+Entidades são os contêiners, no caso são as tabelas
+Atributos são os dados, no caso as linhas
+Relacionamento entre duas entidades forma o Diagrama que se chama der
+Cardinalidade simples ou múltipla, 1 ou N
+
+Chave primaria = identificador
+Chave estrangeira = chave primaria de alguem 
+
+Relacionamento 1 para 1:
+escolher a entidade dominante, pegue a chave da outra entidade e transfira(virando chave estrangeira) 
+
+Relacionamento 1 para N:
+Pega a chave da entidade 1 e transfere para entidade N(virando chave estrangeira)
+
+Relacionamento N para N:
+Desmembrar sempre. O relacionamento vira entidade, ou seja, se for N to N vai virar-> 1 NN 1. Sendo assim virando um relacionamento 1 para N.
+
+   n                  n
+CLIENTE > compra > PRODUTO
+
+o relacionamento (compra) vira entidade
+
+    1       nn        1
+CLIENTE > COMPRA > PRODUTO
+
+----------------------------------------------------------------------------------------------------------------
+chave estrangeira e join
+
+ACID
+Atomicidade - Consistência - Isolamento - Durabiidade 
+
+
+#conferindo o tipo de cada dado
+desc gafanhotos;
+desc cursos;
+
+#adicionando uma nova coluna na tabela gafanhoto
+alter table gafanhotos add column cursopreferido int;
+
+#dizendo que esse coluna criada é a chave estrangeira, que é a chave primaria em cursos e que é a idcurso
+alter table gafanhotos add foreign key(cursopreferido) references cursos(idcurso);
+
+
+
+#esta atualizando a nova coluna, ou seja, esta colocando o cursopreferido(de gafanhotos) com o id(da tabela cursos)
+update gafanhotos set cursopreferido = '6' where id = '1';
+
+
+#tentando apagar o curso, porém é negado já que tem pessoas já relacionadas com ele
+delete from cursos where idcurso = '1';
+
+#tentando apagar um curso que não tem relacionamento com ninguém, ele se apaga sem problemas
+delete from cursos where idcurso = '28';
+
+#usando join, porém dessa maneira ele junta todos com todos, ou seja, juntou o gafanhotos.nome com o curso.nome todas as vezes possiveis
+select gafanhotos.nome, gafanhotos.cursopreferido, cursos.nome, cursos.nome 
+from gafanhotos 
+join cursos;
+
+
+#mostrando a chave estrangeira e fazendo a ligação correta com o ON||| Primeiro caso de INNER JOIN
+select gafanhotos.nome, gafanhotos.cursopreferido, cursos.nome, cursos.ano 
+from gafanhotos inner join cursos 
+on cursos.idcurso = gafanhotos.cursopreferido;
+
+#SEMPRE QUE UTILIZAR O JOIN UTILIZAR O ON
+
+
+
+#utilizando o order by apenas para organizar
+select gafanhotos.nome, cursos.nome, gafanhotos.cursopreferido,  cursos.ano 
+from gafanhotos inner join cursos 
+on cursos.idcurso = gafanhotos.cursopreferido
+order by gafanhotos.nome;
+
+
+#usando as para diminuir o tamanho, importante sempre deixar o nome padrão após o from e após o join
+select g.nome, c.nome, c.ano 
+from gafanhotos as g inner join cursos as c
+on c.idcurso = g.cursopreferido
+order by g.nome;
+
+
+
+#utilizando o outer join, o outer join precisa que escolha a tabela preferencial da esquerda ou direita.E diferente do inner que pega somente as informações cruzadas, ele pega todas as informações, cruzadas ou não
+select g.nome, c.nome, c.ano 
+from gafanhotos as g left outer join cursos as c
+on c.idcurso = g.cursopreferido;
+
+-------------------------------------------------------------------------------------------------
+Inner Join com varias tabelas- muitos para muitos
+
+GAFANHOTOS n > ASSISTE > n CURSOS
+entidade| relacionamento |entidade
+
+para fazer de muitos para muitos precisamos transformar o relacionamento em entidade, ficando assim:
+GAFANHOTOS 1 > n ASSISTE n > 1 CURSOS
+entidade    |    entidade   | entidade
+
+
+
+#sendo assim precisando criar uma nova tabela ASSISTE
+create table gafanhoto_assiste_curso(
+id int not null auto_increment,
+data = date,
+id_gafanhoto = int,
+id_curso = int,
+primary key (id),
+foreign key(id_gafanhoto) references gafanhoto(id)
+foreign key(id_curso) references cursos(idcurso)
+) default charset = utf8;
+
+#inserindo dados na tabela
+insert into gafanhoto_assiste_curso values
+(default, '2024-09-12', '1', '2');
+
+#conferindo dados
+select * from gafanhoto_assiste_curso;
+
+
+#adicionando via terminal do workbeanch
+INSERT INTO `cadastro`.`gafanhoto_assiste_curso` (`data`, `id_gafanhoto`, `id_curso`) VALUES ('2015-12-22', '3', '6');
+INSERT INTO `cadastro`.`gafanhoto_assiste_curso` (`data`, `id_gafanhoto`, `id_curso`) VALUES ('2014-01-01', '22', '12');
+INSERT INTO `cadastro`.`gafanhoto_assiste_curso` (`data`, `id_gafanhoto`, `id_curso`) VALUES ('2016-09-26', '1', '19');
+
+
+
+#dando um inner join para mostrar os dados, nesse caso vai mostrar todos os dados das duas tabelas, mas apenas dos usuários que fornecem as informações necessarias
+select * from gafanhoto as g
+join gafanhoto_assiste_curso as a
+on g.id = a.id_gafanhoto;
+
+
+#dando um inner join mas agora somente com as informações necessária e vai aparecer somente os usuários que fornecem as informações necessarias
+select g.id, g.nome, a.id_gafanhoto from gafanhotos g
+join gafanhoto_assiste_curso a
+on g.id = a.id_gafanhoto;
+
+
+#dando inner join também, mas apenas com nome e o ID do curso
+select g.nome, id_curso from gafanhotos g
+join gafanhoto_assiste_curso a
+on g.id = a.id_gafanhoto
+order by nome;
+
+
+#dando inner join em 2 tabelas, ao todo pegando dados de 3 tabelas, ou seja, conseguindo juntar a tabela cursos e gafanhotos em uma terceira tabela criada apenas para ter 2 chaves estrangeiras
+select g.nome, c.nome from gafanhotos as g
+join gafanhoto_assiste_curso as a
+on g.id = a.id_gafanhoto
+join cursos as c
+on a.id_curso = c.idcurso
+order by g.nome;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
